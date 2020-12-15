@@ -17,20 +17,25 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
   ``` python
   model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc']) # 02-1 모델 accuracy 계산 버전
   # model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc',f1_m,precision_m, recall_m]) # 02-2 모델 accuracy, f1 score, precision, recall 계산 버전
+  
   # 테스트 데이터에 대한 loss, accuracy, f1_score, precision, recall 계산 및 출력
   # 사용할 경우, (02-1)코드는 주석처리하고 (02-2)코드를 주석 해제하여햐 함
   # loss, accuracy, f1_score, precision, recall = model.evaluate(x_test, y_test, verbose=0)
   # print('loss: {:.3f}, accuracy: {:.3f}, precision: {:.3f}, recall: {:.3f}, f1score: {:.3f}'.format(loss, accuracy, precision, recall, f1_score))
+  
+  print("\n 테스트 정확도: %.4f" % (model.evaluate(x_test, y_test)[1]))
   ```
   아래와 같이 수정해야한다.
   ``` python
   # model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc']) # 02-1 모델 accuracy 계산 버전
   model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc',f1_m,precision_m, recall_m]) # 02-2 모델 accuracy, f1 score, precision, recall 계산 버전
+  
   # 테스트 데이터에 대한 loss, accuracy, f1_score, precision, recall 계산 및 출력
   # 사용할 경우, (02-1)코드는 주석처리하고 (02-2)코드를 주석 해제하여햐 함
   loss, accuracy, f1_score, precision, recall = model.evaluate(x_test, y_test, verbose=0)
   print('loss: {:.3f}, accuracy: {:.3f}, precision: {:.3f}, recall: {:.3f}, f1score: {:.3f}'.format(loss, accuracy, precision, recall, f1_score))
-  ```
   
+  # print("\n 테스트 정확도: %.4f" % (model.evaluate(x_test, y_test)[1]))
+  ```
 - KoNLPy는 0.5.2 버전 > Okt
 
