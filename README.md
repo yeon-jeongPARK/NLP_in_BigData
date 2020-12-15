@@ -123,7 +123,8 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
 - KOR_nsmc.py를 실행하기 전에 import되어 있는 내역을 확인해본다.
   - 필요할 경우, 관련 패키지를 설치한다.
 - KOR_nsmc.py를 실행한다.
-  - model을 compile할 때에 accuracy만 계산하는 코드를 사용한다. (f1 score, precision, recall를 계산하는 코드는 주석처리한다.)
+  - Kaggle 테스트 데이터에 대한 kor_result.csv 결과 파일을 생성해야 할 경우, GitHub에 올려둔 KOR_nsmc.py를 그대로 실행한다.
+  (즉, f1 score, precision, recall를 계산하는 코드는 주석처리하여 model을 compile할 때에 accuracy만 계산하는 코드를 사용하는 것이다.)
 - KOR_nsmc.py와 같은 레벨에 kor_nsmc_model.h5 모델과 Kaggle 테스트 데이터에 대한 kor_result.csv 결과 파일이 생성된 것을 확인할 수 있다.
 
 #### 2. ENG_friends.py 실행방법 ####
@@ -133,5 +134,6 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
 - ENG_friends.py를 실행하기 전에 import되어 있는 내역을 확인해본다. 
   - 필요할 경우, 관련 패키지를 설치한다.
 - ENG_friends.py를 실행한다.
-  - model을 compile할 때에 accuracy만 계산하는 코드를 사용한다. (f1 score, precision, recall를 계산하는 코드는 주석처리한다.)
+  - Kaggle 테스트 데이터에 대한 eng_result.csv 결과 파일을 생성해야 할 경우, GitHub에 올려둔 ENG_friends.py를 그대로 실행한다.
+  (즉, f1 score, precision, recall를 계산하는 코드는 주석처리하여 model을 compile할 때에 accuracy만 계산하는 코드를 사용하는 것이다.)
 - ENG_friends.py와 같은 레벨에 eng_friends_model.h5 모델과 Kaggle 테스트 데이터에 대한 eng_result.csv 결과 파일이 생성된 것을 확인할 수 있다.
