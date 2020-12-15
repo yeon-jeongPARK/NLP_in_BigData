@@ -6,6 +6,15 @@
 본 연구에서는 동일한 모델을 사용했을 때에 가장 좋은 성능을 보여줄 수 있는 데이터 전처리 방법의 조합을 제시하고자 한다.
 NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends의 경우, NLTK와 TensorFlow의 Keras, CNN을 사용하여 가장 효과적인 데이터 전처리 방법의 조합을 제시했다.
 
+### 파일 설명 ###
+- Friends : ENG_friends.py에 필요한 데이터 폴더
+- NSMC : KOR_nsmc.py에 필요한 데이터 폴더
+- README.md : 설명서
+- en_data.csv : ENG_friends.py에서 Kaggle 테스트에 필요한 데이터 파일
+- eng_friends_model.h5 : ENG_friends.py에서 결과물로 나오는 모델
+- ko_data.csv : KOR_nsmc.py에서 Kaggle 테스트에 필요한 데이터 파일
+- kor_nsmc_model.h5 : KOR_nsmc.py에서 결과물로 나오는 모델
+
 ### 연구환경 ###
 연구 환경은 아래와 같다.
 - Window 10 환경
@@ -106,16 +115,18 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
 
 ## 실행방법 ##
 #### 1. KOR_nsmc.py 실행방법 ####
-- KOR_nsmc.py 파일과 같은 레벨에 NSMC 폴더와 Kaggle 테스트 데이터인 ko_data.csv 파일을 위치시킨다.
-  - NSMC 폴더는 README.md와 같은 레벨에 NSMC 폴더와 ko_data.csv를 올려두었다.
+- KOR_nsmc.py 파일과 같은 레벨에 NSMC 폴더와 Kaggle 테스트 데이터인 ko_data.csv 파일, kor_nsmc_model.h5 모델 위치시킨다.
+  - README.md와 같은 레벨에 NSMC 폴더와 ko_data.csv, kor_nsmc_model.h5 모델을 올려두었다.
+  - 모델의 성능을 비교하여 더 우수한 모델을 저장할 수 있다.
 - KOR_nsmc.py를 실행하기 전에 import되어 있는 내역을 확인해본다.
   - 필요할 경우, 관련 패키지를 설치한다.
 - KOR_nsmc.py를 실행한다.
 - KOR_nsmc.py와 같은 레벨에 kor_nsmc_model.h5 모델과 Kaggle 테스트 데이터에 대한 kor_result.csv 결과 파일이 생성된 것을 확인할 수 있다.
 
 #### 2. ENG_friends.py 실행방법 ####
-- ENG_friends.py 파일과 같은 레벨에 Friends 폴더와 Kaggle 테스트 데이터인 eng_data.csv 파일을 위치시킨다.
-  - NSMC 폴더는 README.md와 같은 레벨에 Friends 폴더와 eng_data.csv를 올려두었다.
+- ENG_friends.py 파일과 같은 레벨에 Friends 폴더와 Kaggle 테스트 데이터인 eng_data.csv 파일, eng_friends_model.h5 모델을 위치시킨다.
+  - README.md와 같은 레벨에 Friends 폴더와 eng_data.csv, eng_friends_model.h5 모델을 올려두었다.
+  - 모델의 성능을 비교하여 더 우수한 모델을 저장할 수 있다.
 - ENG_friends.py를 실행하기 전에 import되어 있는 내역을 확인해본다. 
   - 필요할 경우, 관련 패키지를 설치한다.
 - ENG_friends.py를 실행한다.
