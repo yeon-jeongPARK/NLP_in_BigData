@@ -9,6 +9,8 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
 ### 파일 설명 ###
 - Friends : ENG_friends.py에 필요한 데이터 폴더
 - NSMC : KOR_nsmc.py에 필요한 데이터 폴더
+- ENG_friends.py : Friends 데이터 기반으로 감성분석 하는 python 파일
+- KOR_nsmc.py : NSMC 데이터 기반으로 감성분석 하는 python 파일
 - README.md : 설명서
 - en_data.csv : ENG_friends.py에서 Kaggle 테스트에 필요한 데이터 파일
 - eng_friends_model.h5 : ENG_friends.py에서 결과물로 나오는 모델
