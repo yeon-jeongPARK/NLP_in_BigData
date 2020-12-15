@@ -14,18 +14,72 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
 - KoNLPy는 0.5.2 버전 > Okt
 - Keras 2.4.3 버전
   - 성능을 비교할 때에 precision과 recall, f-measure를 사용하려고 했으나 공식적으로 Keras 2.0 Metrics 중에서 precision, recall, f-measure가 제외되었다. 따라서 precision, recall, f-measure를 사용자정의함수를 이용하여 계산하였다.
-  - accuracy 말고도 f1 score, precision, recall 값을 얻고 싶다면 KOR_nsmc.py 에서는 블라블라해야한다.
-ENG_friends.py에서는 아래와 같이 되어 있는 코드를
+  - accuracy 말고도 f1 score, precision, recall 값을 얻고 싶다면 KOR_nsmc.py 에서는 아래와 같이 되어 있는 코드를
+  ``` python
+  model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc']) # 01-1 모델 accuracy 계산 버전
+  # model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc',f1_m,precision_m, recall_m]) # 01-2 모델 accuracy, f1 score, precision, recall 계산
+
+  # 테스트 데이터에 대한 loss, accuracy, f1 score, precision, recall 계산 및 출력
+  # loss, accuracy, f1_score, precision, recall = model.evaluate(X_test, y_test, verbose=0)
+  # print('loss: {:.3f}, accuracy: {:.3f}, precision: {:.3f}, recall: {:.3f}, f1score: {:.3f}'.format(loss, accuracy, precision, recall, f1_score))
+
+  print("\n 테스트 정확도: %.4f" % (model.evaluate(X_test, y_test)[1]))
+  
+  # Kaggle 테스트 데이터에 대한 결과 CSV 파일 생성
+  f = open('kor_result.csv', 'w', newline='')
+  wr = csv.writer(f)
+
+  with open('ko_data.csv', 'r') as fd:
+      reader = csv.reader(fd)
+      for row in reader:
+          wr.writerow([row[0], predict(row[1])])
+
+  f.close()
+  ```
+  아래와 같이 수정해야한다.
+  ``` python
+  # model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc']) # 01-1 모델 accuracy 계산 버전
+  model.compile(optimizer='rmsprop', loss='binary_crossentropy', metrics=['acc',f1_m,precision_m, recall_m]) # 01-2 모델 accuracy, f1 score, precision, recall 계산
+
+  # 테스트 데이터에 대한 loss, accuracy, f1 score, precision, recall 계산 및 출력
+  loss, accuracy, f1_score, precision, recall = model.evaluate(X_test, y_test, verbose=0)
+  print('loss: {:.3f}, accuracy: {:.3f}, precision: {:.3f}, recall: {:.3f}, f1score: {:.3f}'.format(loss, accuracy, precision, recall, f1_score))
+
+  # print("\n 테스트 정확도: %.4f" % (model.evaluate(X_test, y_test)[1]))
+  
+  # Kaggle 테스트 데이터에 대한 결과 CSV 파일 생성
+  # f = open('kor_result.csv', 'w', newline='')
+  # wr = csv.writer(f)
+  # 
+  # with open('ko_data.csv', 'r') as fd:
+  #     reader = csv.reader(fd)
+  #     for row in reader:
+  #         wr.writerow([row[0], predict(row[1])])
+  # 
+  # f.close()
+  ```
+  
+  - accuracy 말고도 f1 score, precision, recall 값을 얻고 싶다면 ENG_friends.py에서는 아래와 같이 되어 있는 코드를
   ``` python
   model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc']) # 02-1 모델 accuracy 계산 버전
   # model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc',f1_m,precision_m, recall_m]) # 02-2 모델 accuracy, f1 score, precision, recall 계산 버전
-  
+
   # 테스트 데이터에 대한 loss, accuracy, f1_score, precision, recall 계산 및 출력
-  # 사용할 경우, (02-1)코드는 주석처리하고 (02-2)코드를 주석 해제하여햐 함
   # loss, accuracy, f1_score, precision, recall = model.evaluate(x_test, y_test, verbose=0)
   # print('loss: {:.3f}, accuracy: {:.3f}, precision: {:.3f}, recall: {:.3f}, f1score: {:.3f}'.format(loss, accuracy, precision, recall, f1_score))
-  
+
   print("\n 테스트 정확도: %.4f" % (model.evaluate(x_test, y_test)[1]))
+
+  # Kaggle 테스트 데이터에 대한 결과 CSV 파일 생성
+  f = open('eng_result.csv', 'w', newline='')
+  wr = csv.writer(f)
+
+  with open('en_data.csv', 'r') as fd:
+      reader = csv.reader(fd)
+      for row in reader:
+          wr.writerow([row[0], predict(row[4])])
+
+  f.close()
   ```
   아래와 같이 수정해야한다.
   ``` python
@@ -33,11 +87,21 @@ ENG_friends.py에서는 아래와 같이 되어 있는 코드를
   model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc',f1_m,precision_m, recall_m]) # 02-2 모델 accuracy, f1 score, precision, recall 계산 버전
   
   # 테스트 데이터에 대한 loss, accuracy, f1_score, precision, recall 계산 및 출력
-  # 사용할 경우, (02-1)코드는 주석처리하고 (02-2)코드를 주석 해제하여햐 함
   loss, accuracy, f1_score, precision, recall = model.evaluate(x_test, y_test, verbose=0)
   print('loss: {:.3f}, accuracy: {:.3f}, precision: {:.3f}, recall: {:.3f}, f1score: {:.3f}'.format(loss, accuracy, precision, recall, f1_score))
   
   # print("\n 테스트 정확도: %.4f" % (model.evaluate(x_test, y_test)[1]))
+
+  # Kaggle 테스트 데이터에 대한 결과 CSV 파일 생성
+  # f = open('eng_result.csv', 'w', newline='')
+  # wr = csv.writer(f)
+  # 
+  # with open('en_data.csv', 'r') as fd:
+  #     reader = csv.reader(fd)
+  #     for row in reader:
+  #         wr.writerow([row[0], predict(row[4])])
+  # 
+  # f.close()
   ```
 
 ## 실행방법 ##
