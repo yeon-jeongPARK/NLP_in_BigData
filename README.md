@@ -1,5 +1,5 @@
 # NLP_in_BigData
-빅데이터자연어처리기술
+KOR_nsmc.py와 ENG_friends.py를 실행하시 위해선 아래에 서술된 연구환경과 실행방법을 만족해야한다.
 
 ### 요약 ###
 한국어 데이터인 NSMC(Naver Sentiment Movie Corpus)와 영어 데이터인 Friends를 이용한 감성분석은 다양한 방법으로 연구되고 있다.
