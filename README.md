@@ -11,6 +11,7 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
 - Window 10 환경
 - Python 3.7.7 버전(PyCharm Tool을 사용하여 개발)
 - TensorFlow 2.3.1 버전
+- KoNLPy는 0.5.2 버전 > Okt
 - Keras 2.4.3 버전
   - 성능을 비교할 때에 precision과 recall, f-measure를 사용하려고 했으나 공식적으로 Keras 2.0 Metrics 중에서 precision, recall, f-measure가 제외되었다. 따라서 precision, recall, f-measure를 사용자정의함수를 이용하여 계산하였다.
   accuracy 말고도 f1 score, precision, recall 값을 얻고 싶다면 KOR_nsmc.py 에서는 블라블라해야한다.
@@ -38,21 +39,20 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
   
   # print("\n 테스트 정확도: %.4f" % (model.evaluate(x_test, y_test)[1]))
   ```
-- KoNLPy는 0.5.2 버전 > Okt
 
 ## 실행방법 ##
 1. KOR_nsmc.py 실행방법
-  - KOR_nsmc.py 파일과 같은 레벨에 NSMC 폴더와 Kaggle 테스트 데이터인 ko_data.csv 파일을 위치시킨다.
-  (NSMC 폴더는 README.md와 같은 레벨에 NSMC 폴더와 ko_data.csv를 올려두었다)
-  - KOR_nsmc.py를 실행하기 전에 import되어 있는 내역을 확인해본다.
-  (필요할 경우, 관련 패키지를 설치한다.)
-  - KOR_nsmc.py를 실행한다.
-  - KOR_nsmc.py와 같은 레벨에 kor_nsmc_model.h5 모델과 Kaggle 테스트 데이터에 대한 kor_result.csv 결과 파일이 생성된 것을 확인할 수 있다.
+- KOR_nsmc.py 파일과 같은 레벨에 NSMC 폴더와 Kaggle 테스트 데이터인 ko_data.csv 파일을 위치시킨다.
+  - NSMC 폴더는 README.md와 같은 레벨에 NSMC 폴더와 ko_data.csv를 올려두었다.
+- KOR_nsmc.py를 실행하기 전에 import되어 있는 내역을 확인해본다.
+  - 필요할 경우, 관련 패키지를 설치한다.
+- KOR_nsmc.py를 실행한다.
+- KOR_nsmc.py와 같은 레벨에 kor_nsmc_model.h5 모델과 Kaggle 테스트 데이터에 대한 kor_result.csv 결과 파일이 생성된 것을 확인할 수 있다.
 
 2. ENG_friends.py 실행방법
-  - ENG_friends.py 파일과 같은 레벨에 Friends 폴더와 Kaggle 테스트 데이터인 eng_data.csv 파일을 위치시킨다.
-  (NSMC 폴더는 README.md와 같은 레벨에 Friends 폴더와 eng_data.csv를 올려두었다)
-  - ENG_friends.py를 실행하기 전에 import되어 있는 내역을 확인해본다.
-  (필요할 경우, 관련 패키지를 설치한다.)
-  - ENG_friends.py를 실행한다.
-  - ENG_friends.py와 같은 레벨에 eng_friends_model.h5 모델과 Kaggle 테스트 데이터에 대한 eng_result.csv 결과 파일이 생성된 것을 확인할 수 있다.
+- ENG_friends.py 파일과 같은 레벨에 Friends 폴더와 Kaggle 테스트 데이터인 eng_data.csv 파일을 위치시킨다.
+  - NSMC 폴더는 README.md와 같은 레벨에 Friends 폴더와 eng_data.csv를 올려두었다.
+- ENG_friends.py를 실행하기 전에 import되어 있는 내역을 확인해본다. 
+  - 필요할 경우, 관련 패키지를 설치한다.
+- ENG_friends.py를 실행한다.
+- ENG_friends.py와 같은 레벨에 eng_friends_model.h5 모델과 Kaggle 테스트 데이터에 대한 eng_result.csv 결과 파일이 생성된 것을 확인할 수 있다.
