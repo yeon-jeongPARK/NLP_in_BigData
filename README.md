@@ -40,7 +40,7 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
   ```
 - KoNLPy는 0.5.2 버전 > Okt
 
-### 실행방법 ###
+## 실행방법 ##
 1. KOR_nsmc.py 실행방법
   - KOR_nsmc.py 파일과 같은 레벨에 NSMC 폴더와 Kaggle 테스트 데이터인 ko_data.csv 파일을 위치시킨다.
   (NSMC 폴더는 README.md와 같은 레벨에 NSMC 폴더와 ko_data.csv를 올려두었다)
