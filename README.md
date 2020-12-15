@@ -14,7 +14,7 @@ NSMC의 경우, NLTK와 TensorFlow의 Keras, LSTM을 사용하였으며 Friends�
 - KoNLPy는 0.5.2 버전 > Okt
 - Keras 2.4.3 버전
   - 성능을 비교할 때에 precision과 recall, f-measure를 사용하려고 했으나 공식적으로 Keras 2.0 Metrics 중에서 precision, recall, f-measure가 제외되었다. 따라서 precision, recall, f-measure를 사용자정의함수를 이용하여 계산하였다.
-  accuracy 말고도 f1 score, precision, recall 값을 얻고 싶다면 KOR_nsmc.py 에서는 블라블라해야한다.
+  - accuracy 말고도 f1 score, precision, recall 값을 얻고 싶다면 KOR_nsmc.py 에서는 블라블라해야한다.
   ENG_friends.py에서는 아래와 같이 되어 있는 코드를
   ``` python
   model.compile(optimizer="adam", loss="categorical_crossentropy", metrics=['acc']) # 02-1 모델 accuracy 계산 버전
